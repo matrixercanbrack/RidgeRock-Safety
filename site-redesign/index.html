@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RidgeRock Safety — Toolbox Talk Archive</title>
+  <link rel="stylesheet" href="styles/site-improvements.css">
+</head>
+<body>
+  <header class="site-header container">
+    <div style="display:flex;align-items:center;gap:16px">
+      <div class="logo-fallback" style="width:56px;height:56px;border-radius:8px;font-weight:800;display:flex;align-items:center;justify-content:center">RR</div>
+      <div>
+        <a class="brand" href="./">RIDGE ROCK LLC</a>
+        <div style="color:var(--muted);font-size:.9rem;margin-top:2px">Toolbox Talk Archive</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a class="nav-link" href="#archive">Archive</a>
+      <a class="cta" href="#add">Add new</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Toolbox Talk Archive</h1>
+        <p>Find and download toolbox talks quickly. Use search or filter by topic. Pages are printable and link to the original PDFs stored in /toolbox-talks/.</p>
+
+        <div class="search-row">
+          <input id="search-input" type="search" placeholder="Search talks by title, tag, or keyword" aria-label="Search talks">
+          <select id="filter-topic">
+            <option value="">All topics</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="logo-fallback">RIDGE ROCK</div>
+      </div>
+    </section>
+
+    <section id="archive" class="section">
+      <h2>All Talks</h2>
+      <div id="talks-list" class="row"></div>
+    </section>
+
+    <section class="section">
+      <h2>How to add a new talk</h2>
+      <p class="muted">To add a new toolbox talk PDF, upload the PDF to the toolbox-talks/ folder in this repository (keep the filename format). Then add a new HTML talk page in site-redesign/talks/ or ask me and I will generate pages automatically.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <small>© RidgeRock LLC — Toolbox Talk Archive. Files are stored in /toolbox-talks/</small>
+  </footer>
+
+  <script src="scripts/search.js"></script>
+</body>
+</html>
