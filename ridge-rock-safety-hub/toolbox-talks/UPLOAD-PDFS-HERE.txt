@@ -1,3 +1,0 @@
-Upload all Toolbox Talk PDFs into this folder.
-
-The PDF file names must exactly match the fileName values in data.js.
