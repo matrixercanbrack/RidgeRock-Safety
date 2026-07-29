@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ridge Rock employee safety hub for reporting, toolbox talks, policies, plans, and safety contacts.">
+  <title>Ridge Rock Safety Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Ridge Rock Safety Hub home">
+        <img src="assets/ridge-rock-logo.png" alt="Ridge Rock LLC logo">
+      </a>
+      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mainNav">Menu</button>
+      <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
+        <a href="#reporting">Reporting</a>
+        <a href="#toolbox">Toolbox Talks</a>
+        <a href="#resources">Resources</a>
+        <a href="#contacts">Contacts</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Employee Safety Center</p>
+          <h1>Ridge Rock Safety Hub</h1>
+          <p class="hero-lead">One place for safety reporting, weekly toolbox talks, company resources, and safety contacts.</p>
+          <div class="hero-actions">
+            <a class="button button-warning" href="#reporting">Submit a Safety Report</a>
+            <a class="button button-light" href="#toolbox">Open Current Toolbox Talk</a>
+          </div>
+        </div>
+        <aside class="safety-message" aria-label="Safety message">
+          <div class="shield-icon">✓</div>
+          <div>
+            <p class="safety-kicker">Work Safe.</p>
+            <h2>Go Home Safe.</h2>
+            <p>Safety is everyone’s responsibility.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="quick-links" aria-label="Quick links">
+      <div class="shell quick-grid" id="quickLinks"></div>
+    </section>
+
+    <section class="section" id="reporting">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Safety Reporting</p>
+            <h2>Report a safety concern or event</h2>
+            <p>Choose the report that best matches what happened. More reporting forms can be added at any time.</p>
+          </div>
+          <span class="section-badge" id="reportCount"></span>
+        </div>
+        <div class="card-grid report-grid" id="reportGrid"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="toolbox">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Weekly Safety Training</p>
+            <h2>Toolbox Talks</h2>
+            <p>Review the current talk with your crew, complete documentation, or search the full archive.</p>
+          </div>
+          <span class="section-badge" id="toolboxCount"></span>
+        </div>
+
+        <div class="current-talk" id="currentTalk"></div>
+
+        <div class="toolbox-toolbar">
+          <div>
+            <h3>Toolbox Talk Archive</h3>
+            <p>Search by number, title, category, or topic.</p>
+          </div>
+          <div class="search-wrap">
+            <label class="sr-only" for="talkSearch">Search toolbox talks</label>
+            <input id="talkSearch" type="search" placeholder="Search toolbox talks..." autocomplete="off">
+            <button id="clearSearch" type="button" hidden aria-label="Clear search">×</button>
+          </div>
+        </div>
+
+        <div class="talk-grid" id="talkGrid" aria-live="polite"></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <h3>No toolbox talks found</h3>
+          <p>Try a different number or safety topic.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="resources">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Safety Resources</p>
+            <h2>Policies, plans, and employee resources</h2>
+            <p>Use this section for company documents, training materials, emergency information, and field resources.</p>
+          </div>
+          <span class="section-badge" id="resourceCount"></span>
+        </div>
+        <div class="card-grid resource-grid" id="resourceGrid"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="contacts">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Safety Contacts</p>
+            <h2>Need help?</h2>
+            <p>Contact the Ridge Rock safety team with questions, concerns, or urgent safety needs.</p>
+          </div>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-grid" id="contactGrid"></div>
+          <aside class="speak-up-card">
+            <div class="shield-outline">✓</div>
+            <div>
+              <h3>If you see something, say something.</h3>
+              <p>Your report can help prevent an injury and protect the entire crew.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div>
+        <img src="assets/ridge-rock-logo.png" alt="" aria-hidden="true">
+        <p>Work Safe. Go Home Safe.</p>
+      </div>
+      <p id="lastUpdated"></p>
+    </div>
+  </footer>
+</body>
+</html>
