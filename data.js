@@ -11,7 +11,7 @@
 */
 
 const safetyHubData = {
-  lastUpdated: "July 29, 2026",
+  lastUpdated: "August 3, 2026",
 
   quickLinks: [
     { label: "Report a Near Miss", target: "#reporting", icon: "!" },
