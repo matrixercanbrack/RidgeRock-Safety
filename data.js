@@ -51,8 +51,8 @@ const safetyHubData = {
       disabled: true
     },
     {
-      title: "Equipment Damage Report",
-      description: "Use this area for damage to tools, vehicles, equipment, or company property.",
+      title: "Safety Supply Request",
+      description: "Request PPE, safety equipment, signs, traffic control devices, or other safety-related items needed to perform work safely.",
       url: "#",
       buttonText: "Form Coming Soon",
       icon: "E",
