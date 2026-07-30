@@ -200,6 +200,15 @@ const safetyHubData = {
       fileName: "Toolbox Talk 009 - Tool and Equipment Pre-use Inspection.pdf",
       keywords: "tools equipment inspection defects damaged pre-use",
       active: true
+    },
+    {
+      number: 10,
+      title: "Cell Phone Use",
+      category: "Distraction Awareness",
+      description: "Preventing cell phone distractions while working, driving, or operating equipment.",
+      fileName: "2026-08-03 Toolbox Talk 010 - Cell Phone Use.pdf",
+      keywords: "cell phone phones distraction texting driving equipment focus",
+      active: true
     }
   ]
 };
