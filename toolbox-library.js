@@ -46,7 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .replaceAll("'", "&#039;");
 
   const numberLabel = number => String(number).padStart(3, "0");
-  const pdfURL = fileName => `toolbox-talks/${encodeURIComponent(fileName)}`;
+
+  const pdfURL = fileName =>
+    `toolbox-talks/${encodeURIComponent(fileName)}`;
 
   const searchInput = $("#librarySearch");
   const clearSearchButton = $("#libraryClearSearch");
@@ -55,15 +57,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const talkGrid = $("#libraryTalkGrid");
   const emptyState = $("#libraryEmptyState");
   const viewAllButton = $("#viewAllTalks");
+  const resultsSection = $(".library-results-heading");
 
   let selectedCategory = "";
   let viewAll = false;
 
-  $("#lastUpdated").textContent = `Last updated: ${data.lastUpdated}`;
-  $("#libraryTotal").textContent = activeTalks.length;
+  $("#lastUpdated").textContent =
+    `Last updated: ${data.lastUpdated}`;
+
+  $("#libraryTotal").textContent =
+    activeTalks.length;
 
   const categoryCounts = activeTalks.reduce((counts, talk) => {
-    counts[talk.category] = (counts[talk.category] || 0) + 1;
+    counts[talk.category] =
+      (counts[talk.category] || 0) + 1;
+
     return counts;
   }, {});
 
@@ -75,57 +83,102 @@ document.addEventListener("DOMContentLoaded", () => {
         .sort((a, b) => a.localeCompare(b))
     );
 
-  function renderCategories() {
-    categoryGrid.innerHTML = usedCategories.map(category => {
-      const count = categoryCounts[category];
-      const selected = selectedCategory === category;
+  function scrollToResults() {
+    setTimeout(() => {
+      resultsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 80);
+  }
 
-      return `
-        <button
-          class="category-card ${selected ? "is-selected" : ""}"
-          type="button"
-          data-category="${escapeHTML(category)}"
-          aria-pressed="${selected}"
-        >
-          <span class="category-card-name">${escapeHTML(category)}</span>
-          <span class="category-card-count">
-            <strong>${count}</strong>
-            ${count === 1 ? "talk" : "talks"}
-          </span>
-          <span class="category-card-arrow" aria-hidden="true">→</span>
-        </button>
-      `;
-    }).join("");
+  function renderCategories() {
+    categoryGrid.innerHTML = usedCategories
+      .map(category => {
+        const count = categoryCounts[category];
+        const selected =
+          selectedCategory === category;
+
+        return `
+          <button
+            class="category-card ${selected ? "is-selected" : ""}"
+            type="button"
+            data-category="${escapeHTML(category)}"
+            aria-pressed="${selected}"
+          >
+            <span class="category-card-name">
+              ${selected ? "✓ " : ""}
+              ${escapeHTML(category)}
+            </span>
+
+            <span class="category-card-count">
+              <strong>${count}</strong>
+              ${count === 1 ? "talk" : "talks"}
+            </span>
+          </button>
+        `;
+      })
+      .join("");
 
     categoryReset.hidden = !selectedCategory;
 
-    categoryGrid.querySelectorAll(".category-card").forEach(button => {
-      button.addEventListener("click", () => {
-        const category = button.dataset.category;
-        selectedCategory = selectedCategory === category ? "" : category;
-        viewAll = true;
-        renderCategories();
-        renderResults();
+    categoryGrid
+      .querySelectorAll(".category-card")
+      .forEach(button => {
+        button.addEventListener("click", () => {
+          const category =
+            button.dataset.category;
+
+          selectedCategory =
+            selectedCategory === category
+              ? ""
+              : category;
+
+          viewAll = true;
+
+          renderCategories();
+          renderResults();
+
+          if (selectedCategory) {
+            scrollToResults();
+          }
+        });
       });
-    });
   }
 
   function createTalkCard(talk) {
-    const isCurrent = currentTalk && talk.number === currentTalk.number;
+    const isCurrent =
+      currentTalk &&
+      talk.number === currentTalk.number;
 
     return `
       <article class="talk-card ${isCurrent ? "is-current" : ""}">
         <div class="talk-card-top">
-          <span class="talk-number">${numberLabel(talk.number)}</span>
-          <span class="talk-category">${escapeHTML(talk.category)}</span>
+          <span class="talk-number">
+            ${numberLabel(talk.number)}
+          </span>
+
+          <span class="talk-category">
+            ${escapeHTML(talk.category)}
+          </span>
         </div>
 
         <div>
           <div class="title-row">
-            <h3>${escapeHTML(talk.title)}</h3>
-            ${isCurrent ? '<span class="current-label">Current</span>' : ""}
+            <h3>
+              ${escapeHTML(talk.title)}
+            </h3>
+
+            ${
+              isCurrent
+                ? '<span class="current-label">Current</span>'
+                : ""
+            }
           </div>
-          <p>${escapeHTML(talk.description)}</p>
+
+          <p>
+            ${escapeHTML(talk.description)}
+          </p>
         </div>
 
         <a
@@ -134,17 +187,23 @@ document.addEventListener("DOMContentLoaded", () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Open Toolbox Talk <span aria-hidden="true">↗</span>
+          Open Toolbox Talk
+          <span aria-hidden="true">↗</span>
         </a>
       </article>
     `;
   }
 
   function getFilteredTalks() {
-    const query = searchInput.value.trim().toLowerCase();
+    const query =
+      searchInput.value
+        .trim()
+        .toLowerCase();
 
     return activeTalks.filter(talk => {
-      const matchesCategory = !selectedCategory || talk.category === selectedCategory;
+      const matchesCategory =
+        !selectedCategory ||
+        talk.category === selectedCategory;
 
       const haystack = [
         numberLabel(talk.number),
@@ -152,61 +211,125 @@ document.addEventListener("DOMContentLoaded", () => {
         talk.category,
         talk.description,
         talk.keywords || ""
-      ].join(" ").toLowerCase();
+      ]
+        .join(" ")
+        .toLowerCase();
 
-      const words = query.split(/\s+/).filter(Boolean);
-      const matchesSearch = words.every(word => haystack.includes(word));
+      const words =
+        query
+          .split(/\s+/)
+          .filter(Boolean);
+
+      const matchesSearch =
+        words.every(word =>
+          haystack.includes(word)
+        );
 
       return matchesCategory && matchesSearch;
     });
   }
 
   function renderResults() {
-    const query = searchInput.value.trim();
-    const filtered = getFilteredTalks();
+    const query =
+      searchInput.value.trim();
 
-    clearSearchButton.hidden = query.length === 0;
+    const filtered =
+      getFilteredTalks();
+
+    clearSearchButton.hidden =
+      query.length === 0;
 
     let talksToShow = filtered;
-    const browsing = Boolean(query || selectedCategory || viewAll);
+
+    const browsing =
+      Boolean(
+        query ||
+        selectedCategory ||
+        viewAll
+      );
 
     if (!browsing) {
       talksToShow = [...filtered]
         .sort((a, b) => b.number - a.number)
         .slice(0, 6);
 
-      $("#resultsEyebrow").textContent = "Recently Added";
-      $("#resultsTitle").textContent = "Latest Toolbox Talks";
-      $("#resultsDescription").textContent = "The newest talks in the Ridge Rock safety library.";
-      viewAllButton.hidden = activeTalks.length <= 6;
-    } else {
-      talksToShow = [...filtered].sort((a, b) => b.number - a.number);
+      $("#resultsEyebrow").textContent =
+        "Recently Added";
 
-      $("#resultsEyebrow").textContent = "Toolbox Talk Archive";
+      $("#resultsTitle").textContent =
+        "Latest Toolbox Talks";
+
+      $("#resultsDescription").textContent =
+        "The newest talks in the Ridge Rock safety library.";
+
+      viewAllButton.hidden =
+        activeTalks.length <= 6;
+    } else {
+      talksToShow =
+        [...filtered]
+          .sort((a, b) => b.number - a.number);
+
+      $("#resultsEyebrow").textContent =
+        "Toolbox Talk Archive";
 
       if (selectedCategory && query) {
-        $("#resultsTitle").textContent = `${selectedCategory} Results`;
+        $("#resultsTitle").textContent =
+          selectedCategory;
+
         $("#resultsDescription").textContent =
-          `${filtered.length} ${filtered.length === 1 ? "talk" : "talks"} matching "${query}".`;
-      } else if (selectedCategory) {
-        $("#resultsTitle").textContent = selectedCategory;
+          `${filtered.length} ${
+            filtered.length === 1
+              ? "talk"
+              : "talks"
+          } in this category matching "${query}".`;
+      }
+
+      else if (selectedCategory) {
+        $("#resultsTitle").textContent =
+          selectedCategory;
+
         $("#resultsDescription").textContent =
-          `${filtered.length} ${filtered.length === 1 ? "talk" : "talks"} in this category.`;
-      } else if (query) {
-        $("#resultsTitle").textContent = "Search Results";
+          `${filtered.length} ${
+            filtered.length === 1
+              ? "talk"
+              : "talks"
+          } in this category.`;
+      }
+
+      else if (query) {
+        $("#resultsTitle").textContent =
+          "Search Results";
+
         $("#resultsDescription").textContent =
-          `${filtered.length} ${filtered.length === 1 ? "talk" : "talks"} matching "${query}".`;
-      } else {
-        $("#resultsTitle").textContent = "All Toolbox Talks";
+          `${filtered.length} ${
+            filtered.length === 1
+              ? "talk"
+              : "talks"
+          } matching "${query}".`;
+      }
+
+      else {
+        $("#resultsTitle").textContent =
+          "All Toolbox Talks";
+
         $("#resultsDescription").textContent =
-          `${filtered.length} ${filtered.length === 1 ? "talk" : "talks"} in the complete archive.`;
+          `${filtered.length} ${
+            filtered.length === 1
+              ? "talk"
+              : "talks"
+          } in the complete archive.`;
       }
 
       viewAllButton.hidden = true;
     }
 
-    talkGrid.innerHTML = talksToShow.map(createTalkCard).join("");
-    emptyState.hidden = talksToShow.length > 0;
+    talkGrid.innerHTML =
+      talksToShow
+        .map(createTalkCard)
+        .join("");
+
+    emptyState.hidden =
+      talksToShow.length > 0;
   }
 
   searchInput.addEventListener("input", () => {
@@ -229,22 +352,37 @@ document.addEventListener("DOMContentLoaded", () => {
   viewAllButton.addEventListener("click", () => {
     viewAll = true;
     renderResults();
+    scrollToResults();
   });
 
-  const menuButton = $("#menuButton");
-  const mainNav = $("#mainNav");
+  const menuButton =
+    $("#menuButton");
+
+  const mainNav =
+    $("#mainNav");
 
   menuButton.addEventListener("click", () => {
-    const open = mainNav.classList.toggle("open");
-    menuButton.setAttribute("aria-expanded", String(open));
+    const open =
+      mainNav.classList.toggle("open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      String(open)
+    );
   });
 
-  mainNav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      mainNav.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
+  mainNav
+    .querySelectorAll("a")
+    .forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+      });
     });
-  });
 
   renderCategories();
   renderResults();
