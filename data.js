@@ -93,15 +93,14 @@ const safetyHubData = {
       active: true
     },
     {
-      title: "Training & Orientation",
-      description: "Employee training, new-hire orientation, and required safety materials.",
-      url: "#",
-      buttonText: "Coming Soon",
-      icon: "T",
-      theme: "blue",
-      active: true,
-      disabled: true
-    }
+  title: "SDS Library",
+  description: "Access Safety Data Sheets for chemicals, fuels, and materials used in the field.",
+  url: "#",
+  buttonText: "Coming Soon",
+  icon: "S",
+  theme: "green",
+  disabled: true
+}
   ],
 
   contacts: [
