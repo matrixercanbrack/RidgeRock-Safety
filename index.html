@@ -80,23 +80,31 @@
 
         <div class="current-talk" id="currentTalk"></div>
 
-        <div class="toolbox-toolbar">
-          <div>
-            <h3>Toolbox Talk Archive</h3>
-            <p>Search by number, title, category, or topic.</p>
-          </div>
-          <div class="search-wrap">
-            <label class="sr-only" for="talkSearch">Search toolbox talks</label>
-            <input id="talkSearch" type="search" placeholder="Search toolbox talks..." autocomplete="off">
-            <button id="clearSearch" type="button" hidden aria-label="Clear search">×</button>
-          </div>
-        </div>
+        <div class="toolbox-library-cta">
+  <div class="library-icon" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-        <div class="talk-grid" id="talkGrid" aria-live="polite"></div>
-        <div class="empty-state" id="emptyState" hidden>
-          <h3>No toolbox talks found</h3>
-          <p>Try a different number or safety topic.</p>
-        </div>
+  <div class="library-copy">
+    <p class="library-kicker">Toolbox Talk Library</p>
+    <h3>Looking for a previous safety topic?</h3>
+    <p>
+      Browse the complete Toolbox Talk library, search by topic,
+      or filter talks by safety category.
+    </p>
+  </div>
+
+  <div class="library-actions">
+    <span class="library-count" id="libraryTalkCount"></span>
+
+    <a class="button button-primary" href="toolbox-talks.html">
+      Browse Toolbox Talk Library
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</div>
       </div>
     </section>
 
