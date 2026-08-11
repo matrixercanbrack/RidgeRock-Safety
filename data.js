@@ -209,6 +209,15 @@ const safetyHubData = {
       fileName: "2026-08-03 Toolbox Talk 010 - Cell Phone Use.pdf",
       keywords: "cell phone phones distraction texting driving equipment focus",
       active: true
+    },
+    {
+      number: 11,
+      title: "Personal Protective Equipment",
+      category: "PPE",
+      description: "Required PPE, updated high-visibility safety vest requirements, and jobsite PPE compliance.",
+      fileName: "2026-08-10 Toolbox Talk 011 - Personal Protective Equipment.pdf",
+      keywords: "ppe personal protective equipment hard hat safety glasses high visibility safety vest reflective vest boots compliance",
+      active: true
     }
   ]
 };
