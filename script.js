@@ -73,57 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   }
 
-  const talkGrid = $("#talkGrid");
-  const talkSearch = $("#talkSearch");
-  const clearSearch = $("#clearSearch");
-  const emptyState = $("#emptyState");
+const libraryTalkCount = $("#libraryTalkCount");
 
-  function renderTalks(talks) {
-    talkGrid.innerHTML = talks.map(talk => {
-      const isCurrent = currentTalk && talk.number === currentTalk.number;
-      return `
-        <article class="talk-card ${isCurrent ? "is-current" : ""}">
-          <div class="talk-card-top">
-            <span class="talk-number">${numberLabel(talk.number)}</span>
-            <span class="talk-category">${escapeHTML(talk.category)}</span>
-          </div>
-          <div>
-            <div class="title-row">
-              <h3>${escapeHTML(talk.title)}</h3>
-              ${isCurrent ? '<span class="current-label">Current</span>' : ""}
-            </div>
-            <p>${escapeHTML(talk.description)}</p>
-          </div>
-          <a class="button button-outline" href="${pdfURL(talk.fileName)}" target="_blank" rel="noopener noreferrer">Open Toolbox Talk <span aria-hidden="true">↗</span></a>
-        </article>
-      `;
-    }).join("");
-    emptyState.hidden = talks.length > 0;
-  }
-
-  function updateSearch() {
-    const query = talkSearch.value.trim().toLowerCase();
-    clearSearch.hidden = query.length === 0;
-    const filtered = activeTalks.filter(talk => {
-      const haystack = [
-        numberLabel(talk.number),
-        talk.title,
-        talk.category,
-        talk.description,
-        talk.keywords || ""
-      ].join(" ").toLowerCase();
-      return query.split(/\s+/).filter(Boolean).every(word => haystack.includes(word));
-    });
-    renderTalks(filtered);
-  }
-
-  talkSearch.addEventListener("input", updateSearch);
-  clearSearch.addEventListener("click", () => {
-    talkSearch.value = "";
-    updateSearch();
-    talkSearch.focus();
-  });
-  renderTalks(activeTalks);
+if (libraryTalkCount) {
+  libraryTalkCount.textContent =
+    `${activeTalks.length} ${activeTalks.length === 1 ? "talk" : "talks"} in library`;
+}
 
   $("#contactGrid").innerHTML = data.contacts.map(contact => `
     <article class="contact-card">
