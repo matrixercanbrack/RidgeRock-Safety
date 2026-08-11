@@ -45,7 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 
-  const numberLabel = number => String(number).padStart(3, "0");
+  const numberLabel = number =>
+    String(number).padStart(3, "0");
 
   const pdfURL = fileName =>
     `toolbox-talks/${encodeURIComponent(fileName)}`;
@@ -56,11 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const categoryReset = $("#categoryReset");
   const talkGrid = $("#libraryTalkGrid");
   const emptyState = $("#libraryEmptyState");
-  const viewAllButton = $("#viewAllTalks");
-  const resultsSection = $(".library-results-heading");
+  const resultsSection = $("#libraryResults");
 
   let selectedCategory = "";
-  let viewAll = false;
 
   $("#lastUpdated").textContent =
     `Last updated: ${data.lastUpdated}`;
@@ -84,12 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
   function scrollToResults() {
+    if (!resultsSection) return;
+
     setTimeout(() => {
       resultsSection.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
-    }, 80);
+    }, 100);
   }
 
   function renderCategories() {
@@ -134,8 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
               ? ""
               : category;
 
-          viewAll = true;
-
           renderCategories();
           renderResults();
 
@@ -165,9 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div>
           <div class="title-row">
-            <h3>
-              ${escapeHTML(talk.title)}
-            </h3>
+            <h3>${escapeHTML(talk.title)}</h3>
 
             ${
               isCurrent
@@ -176,9 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           </div>
 
-          <p>
-            ${escapeHTML(talk.description)}
-          </p>
+          <p>${escapeHTML(talk.description)}</p>
         </div>
 
         <a
@@ -239,17 +234,10 @@ document.addEventListener("DOMContentLoaded", () => {
     clearSearchButton.hidden =
       query.length === 0;
 
-    let talksToShow = filtered;
+    let talksToShow;
 
-    const browsing =
-      Boolean(
-        query ||
-        selectedCategory ||
-        viewAll
-      );
-
-    if (!browsing) {
-      talksToShow = [...filtered]
+    if (!query && !selectedCategory) {
+      talksToShow = [...activeTalks]
         .sort((a, b) => b.number - a.number)
         .slice(0, 6);
 
@@ -261,10 +249,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       $("#resultsDescription").textContent =
         "The newest talks in the Ridge Rock safety library.";
+    }
 
-      viewAllButton.hidden =
-        activeTalks.length <= 6;
-    } else {
+    else {
       talksToShow =
         [...filtered]
           .sort((a, b) => b.number - a.number);
@@ -296,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
           } in this category.`;
       }
 
-      else if (query) {
+      else {
         $("#resultsTitle").textContent =
           "Search Results";
 
@@ -307,20 +294,6 @@ document.addEventListener("DOMContentLoaded", () => {
               : "talks"
           } matching "${query}".`;
       }
-
-      else {
-        $("#resultsTitle").textContent =
-          "All Toolbox Talks";
-
-        $("#resultsDescription").textContent =
-          `${filtered.length} ${
-            filtered.length === 1
-              ? "talk"
-              : "talks"
-          } in the complete archive.`;
-      }
-
-      viewAllButton.hidden = true;
     }
 
     talkGrid.innerHTML =
@@ -333,7 +306,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   searchInput.addEventListener("input", () => {
-    viewAll = true;
     renderResults();
   });
 
@@ -349,17 +321,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderResults();
   });
 
-  viewAllButton.addEventListener("click", () => {
-    viewAll = true;
-    renderResults();
-    scrollToResults();
-  });
-
-  const menuButton =
-    $("#menuButton");
-
-  const mainNav =
-    $("#mainNav");
+  const menuButton = $("#menuButton");
+  const mainNav = $("#mainNav");
 
   menuButton.addEventListener("click", () => {
     const open =
