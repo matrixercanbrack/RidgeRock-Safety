@@ -93,13 +93,13 @@ const safetyHubData = {
       active: true
     },
     {
-  title: "SDS Library",
-  description: "Access Safety Data Sheets for chemicals, fuels, and materials used in the field.",
-  url: "#",
-  buttonText: "Coming Soon",
+ title: "SDS Library",
+  description: "Access Safety Data Sheets for chemicals, fuels, paving materials, concrete products, and maintenance supplies.",
+  url: "sds.html",
+  buttonText: "Open SDS Library",
   icon: "S",
   theme: "green",
-  disabled: true
+  active: true
 }
   ],
 
