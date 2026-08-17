@@ -36,45 +36,6 @@
 }
 
 
-/* HELPER NOTICE */
-
-.sds-notice {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-  padding: 16px 18px;
-  border: 1px solid #e8c85a;
-  border-radius: 14px;
-  background: var(--gold-100);
-}
-
-.sds-notice-mark {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  border-radius: 10px;
-  background: var(--gold-500);
-  color: var(--navy-950);
-  font-size: 20px;
-  font-weight: 900;
-}
-
-.sds-notice h2 {
-  margin: 0;
-  font-size: 17px;
-}
-
-.sds-notice p {
-  margin: 4px 0 0;
-  color: #655524;
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-
 /* COMPLETE PACKAGE */
 
 .sds-complete-package {
@@ -82,8 +43,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  margin-top: 0;
-  margin-bottom: 58px;
+  margin-bottom: 20px;
   padding: 26px 28px;
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -103,6 +63,47 @@
 }
 
 
+/* BROWSING TIP */
+
+.sds-tip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 48px;
+  padding: 14px 16px;
+  border: 1px solid #d8e2eb;
+  border-radius: 12px;
+  background: #f7f9fb;
+}
+
+.sds-tip-icon {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blue-100);
+  color: var(--blue-600);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.sds-tip-label {
+  margin: 0 0 2px;
+  color: var(--navy-900);
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.sds-tip div:last-child > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+
 /* SUMMARY */
 
 .sds-summary {
@@ -110,7 +111,6 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 28px;
-  margin-top: 0;
   margin-bottom: 28px;
 }
 
@@ -414,12 +414,12 @@
     text-align: left;
   }
 
-  .sds-complete-package {
-    margin-bottom: 46px;
-  }
-
   .sds-complete-package .button {
     width: 100%;
+  }
+
+  .sds-tip {
+    align-items: flex-start;
   }
 }
 
@@ -432,8 +432,8 @@
     grid-template-columns: 1fr;
   }
 
-  .sds-notice {
-    grid-template-columns: 1fr;
+  .sds-tip {
+    align-items: flex-start;
   }
 
   .sds-category-card {
