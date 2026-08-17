@@ -5,7 +5,7 @@ const sdsLibraryData = {
 
   completePackage: {
     title: "Complete Ridge Rock SDS Package",
-    description: "Open the complete Ridge Rock Safety Data Sheet package and chemical inventory.",
+    description: "View the complete Ridge Rock SDS collection and chemical inventory in one document.",
     fileName: "SafetyDataSheet_RidgeRock.pdf"
   },
 
