@@ -225,13 +225,22 @@ const safetyHubData = {
       keywords: "cell phone phones distraction texting driving equipment focus",
       active: true
     },
-    {
+   {
       number: 11,
       title: "Personal Protective Equipment",
       category: "PPE",
       description: "Required PPE, updated high-visibility safety vest requirements, and jobsite PPE compliance.",
       fileName: "2026-08-10 Toolbox Talk 011 - Personal Protective Equipment.pdf",
       keywords: "ppe personal protective equipment hard hat safety glasses high visibility safety vest reflective vest boots compliance",
+      active: true
+    },
+    {
+      number: 12,
+      title: "Stop Work Authority",
+      category: "General Safety",
+      description: "Every employee has the authority to stop unsafe work, report hazards, and make sure conditions are corrected before work resumes.",
+      fileName: "2026-08-17 Toolbox Talk 012 - Stop Work Authority.pdf",
+      keywords: "stop work authority safety concern hazard speak up unsafe work supervisor foreman correct hazard resume no retaliation",
       active: true
     }
   ]
