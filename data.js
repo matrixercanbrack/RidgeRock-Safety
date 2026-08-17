@@ -1,4 +1,4 @@
-/*
+ /*
   RIDGE ROCK SAFETY HUB DATA
   --------------------------
   This is the main file you update when adding reports, resources,
@@ -11,13 +11,29 @@
 */
 
 const safetyHubData = {
-  lastUpdated: "August 11, 2026",
+  lastUpdated: "August 17, 2026",
 
   quickLinks: [
-    { label: "Report a Near Miss", target: "#reporting", icon: "!" },
-    { label: "Current Toolbox Talk", target: "#toolbox", icon: "T" },
-    { label: "Safety Resources", target: "#resources", icon: "R" },
-    { label: "Safety Contacts", target: "#contacts", icon: "C" }
+    {
+      label: "Report a Near Miss",
+      target: "#reporting",
+      icon: "!"
+    },
+    {
+      label: "Current Toolbox Talk",
+      target: "#toolbox",
+      icon: "T"
+    },
+    {
+      label: "SDS Library",
+      target: "sds.html",
+      icon: "S"
+    },
+    {
+      label: "Safety Contacts",
+      target: "#contacts",
+      icon: "C"
+    }
   ],
 
   reports: [
@@ -93,14 +109,14 @@ const safetyHubData = {
       active: true
     },
     {
- title: "SDS Library",
-  description: "Access Safety Data Sheets for chemicals, fuels, paving materials, concrete products, and maintenance supplies.",
-  url: "sds.html",
-  buttonText: "Open SDS Library",
-  icon: "S",
-  theme: "green",
-  active: true
-}
+      title: "SDS Library",
+      description: "Access Safety Data Sheets for chemicals, fuels, paving materials, concrete products, and maintenance supplies.",
+      url: "sds.html",
+      buttonText: "Open SDS Library",
+      icon: "S",
+      theme: "green",
+      active: true
+    }
   ],
 
   contacts: [
@@ -158,7 +174,7 @@ const safetyHubData = {
     {
       number: 5,
       title: "Staying Hydrated",
-      category: "Heat Safety",
+      category: "Heat & Weather",
       description: "Preventing dehydration and heat-related illness.",
       fileName: "Toolbox Talk 005 - Staying Hydrated.pdf",
       keywords: "hydration water heat illness dehydration",
