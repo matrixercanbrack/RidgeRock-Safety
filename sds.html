@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ridge Rock Safety Data Sheet library for fuels, paving materials, concrete products, maintenance chemicals, solvents, and fire safety products.">
+
+  <meta
+    name="description"
+    content="Ridge Rock Safety Data Sheet library for fuels, paving materials, concrete products, maintenance chemicals, solvents, and fire safety products."
+  >
+
   <title>SDS Library | Ridge Rock Safety Hub</title>
 
   <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -15,17 +20,37 @@
 </head>
 
 <body>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="index.html" aria-label="Ridge Rock Safety Hub home">
-        <img src="assets/ridge-rock-logo.png" alt="Ridge Rock LLC logo">
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Ridge Rock Safety Hub home"
+      >
+        <img
+          src="assets/ridge-rock-logo.png"
+          alt="Ridge Rock LLC logo"
+        >
       </a>
 
-      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mainNav">
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
         Menu
       </button>
 
-      <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
+      <nav
+        class="main-nav"
+        id="mainNav"
+        aria-label="Primary navigation"
+      >
         <a href="index.html#reporting">Reporting</a>
         <a href="index.html#toolbox">Current Talk</a>
         <a href="toolbox-talks.html">Talk Library</a>
@@ -33,120 +58,297 @@
         <a href="index.html#resources">Resources</a>
         <a href="index.html#contacts">Contacts</a>
       </nav>
+
     </div>
   </header>
 
+
   <main id="top">
+
+    <!-- HERO -->
     <section class="sds-hero">
       <div class="shell sds-hero-inner">
+
         <div>
           <p class="eyebrow">Hazard Communication</p>
-          <h1>Safety Data Sheets</h1>
+
+          <h1>
+            Safety Data Sheets
+          </h1>
+
           <p class="sds-hero-lead">
-            Quickly find safety information for products and materials used by Ridge Rock.
+            Quickly find safety information for products and materials
+            used in Ridge Rock operations.
           </p>
         </div>
 
-        <a class="button button-light" href="index.html#resources">
+        <a
+          class="button button-light"
+          href="index.html#resources"
+        >
           ← Back to Safety Resources
         </a>
+
       </div>
     </section>
 
+
+    <!-- SDS LIBRARY -->
     <section class="section sds-section">
       <div class="shell">
 
+
+        <!-- GENERAL SDS NOTICE -->
         <div class="sds-notice">
-          <div class="sds-notice-mark">!</div>
+
+          <div class="sds-notice-mark">
+            !
+          </div>
+
           <div>
-            <h2>Use the SDS that matches the product onsite.</h2>
+            <h2>
+              Can’t find the SDS you need?
+            </h2>
+
             <p>
-              Verify the product name and manufacturer on the container before using an SDS.
-              If the product, brand, formulation, grade, or supplier is different, contact the Safety Department.
+              This library contains Safety Data Sheets for common
+              products and materials used in Ridge Rock operations.
+              If the product or material you need is not listed,
+              contact the Safety Department for assistance.
             </p>
           </div>
+
         </div>
 
-        <div class="sds-summary">
+
+        <!-- COMPLETE SDS PACKAGE -->
+        <div class="sds-complete-package">
+
           <div>
-            <p class="eyebrow">SDS Library</p>
-            <h2>Find the right sheet fast.</h2>
-            <p>Search by material, product name, manufacturer, or category.</p>
+            <p class="eyebrow">
+              Complete Collection
+            </p>
+
+            <h2>
+              Complete Ridge Rock SDS Package
+            </h2>
+
+            <p>
+              View the complete Ridge Rock SDS collection and
+              chemical inventory in one document.
+            </p>
           </div>
+
+          <a
+            class="button button-primary"
+            id="completePackageLink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open Complete SDS Package
+            <span aria-hidden="true">↗</span>
+          </a>
+
+        </div>
+
+
+        <!-- LIBRARY SUMMARY -->
+        <div class="sds-summary">
+
+          <div>
+
+            <p class="eyebrow">
+              SDS Library
+            </p>
+
+            <h2>
+              Find the right sheet fast.
+            </h2>
+
+            <p>
+              Search by material, product name,
+              manufacturer, or category.
+            </p>
+
+          </div>
+
 
           <div class="sds-total">
-            <strong id="sdsTotal">0</strong>
-            <span>SDSs available</span>
+
+            <strong id="sdsTotal">
+              0
+            </strong>
+
+            <span>
+              SDSs available
+            </span>
+
           </div>
+
         </div>
 
+
+        <!-- SEARCH -->
         <div class="sds-search-wrap">
-          <label class="sr-only" for="sdsSearch">Search Safety Data Sheets</label>
-          <span class="sds-search-icon" aria-hidden="true">⌕</span>
+
+          <label
+            class="sr-only"
+            for="sdsSearch"
+          >
+            Search Safety Data Sheets
+          </label>
+
+          <span
+            class="sds-search-icon"
+            aria-hidden="true"
+          >
+            ⌕
+          </span>
+
           <input
             id="sdsSearch"
             type="search"
             placeholder="Search product, material, or manufacturer..."
             autocomplete="off"
           >
-          <button id="sdsClearSearch" type="button" hidden aria-label="Clear search">×</button>
+
+          <button
+            id="sdsClearSearch"
+            type="button"
+            hidden
+            aria-label="Clear search"
+          >
+            ×
+          </button>
+
         </div>
 
+
+        <!-- CATEGORY FILTERS -->
         <div class="sds-category-header">
+
           <div>
-            <h2>Browse by Category</h2>
-            <p>Choose a category to show only the SDSs you need.</p>
+
+            <h2>
+              Browse by Category
+            </h2>
+
+            <p>
+              Choose a category to show only the SDSs you need.
+            </p>
+
           </div>
 
-          <button class="sds-category-reset" id="sdsCategoryReset" type="button" hidden>
+
+          <button
+            class="sds-category-reset"
+            id="sdsCategoryReset"
+            type="button"
+            hidden
+          >
             Clear Category
           </button>
+
         </div>
 
-        <div class="sds-category-grid" id="sdsCategoryGrid" aria-label="SDS categories"></div>
 
-        <div class="sds-results-heading" id="sdsResults">
+        <div
+          class="sds-category-grid"
+          id="sdsCategoryGrid"
+          aria-label="SDS categories"
+        ></div>
+
+
+        <!-- RESULTS HEADING -->
+        <div
+          class="sds-results-heading"
+          id="sdsResults"
+        >
+
           <div>
-            <p class="eyebrow" id="sdsResultsEyebrow">All Safety Data Sheets</p>
-            <h2 id="sdsResultsTitle">All SDSs</h2>
-            <p id="sdsResultsDescription">Browse all Safety Data Sheets currently in the Ridge Rock library.</p>
+
+            <p
+              class="eyebrow"
+              id="sdsResultsEyebrow"
+            >
+              All Safety Data Sheets
+            </p>
+
+            <h2 id="sdsResultsTitle">
+              All SDSs
+            </h2>
+
+            <p id="sdsResultsDescription">
+              Browse all Safety Data Sheets currently
+              in the Ridge Rock library.
+            </p>
+
           </div>
 
-          <span class="sds-result-count" id="sdsResultCount"></span>
+
+          <span
+            class="sds-result-count"
+            id="sdsResultCount"
+          ></span>
+
         </div>
 
-        <div class="sds-grid" id="sdsGrid" aria-live="polite"></div>
 
-        <div class="empty-state" id="sdsEmptyState" hidden>
-          <h3>No Safety Data Sheets found</h3>
-          <p>Try a different product, manufacturer, or category.</p>
+        <!-- SDS CARDS -->
+        <div
+          class="sds-grid"
+          id="sdsGrid"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- EMPTY STATE -->
+        <div
+          class="empty-state"
+          id="sdsEmptyState"
+          hidden
+        >
+
+          <h3>
+            No Safety Data Sheets found
+          </h3>
+
+          <p>
+            Try a different product,
+            manufacturer, or category.
+          </p>
+
         </div>
 
-        <div class="sds-complete-package">
-          <div>
-            <p class="eyebrow">Complete Collection</p>
-            <h2>Need the full SDS package?</h2>
-            <p>Open the complete Ridge Rock SDS package and chemical inventory in one document.</p>
-          </div>
-
-          <a class="button button-primary" id="completePackageLink" target="_blank" rel="noopener noreferrer">
-            Open Complete SDS Package ↗
-          </a>
-        </div>
 
       </div>
     </section>
+
   </main>
 
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="shell footer-inner">
+
       <div>
-        <img src="assets/ridge-rock-logo.png" alt="" aria-hidden="true">
-        <p>Work Safe. Go Home Safe.</p>
+
+        <img
+          src="assets/ridge-rock-logo.png"
+          alt=""
+          aria-hidden="true"
+        >
+
+        <p>
+          Work Safe. Go Home Safe.
+        </p>
+
       </div>
 
       <p id="sdsLastUpdated"></p>
+
     </div>
   </footer>
+
 </body>
 </html>
