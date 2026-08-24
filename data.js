@@ -242,6 +242,15 @@ const safetyHubData = {
       fileName: "2026-08-17 Toolbox Talk 012 - Stop Work Authority.pdf",
       keywords: "stop work authority safety concern hazard speak up unsafe work supervisor foreman correct hazard resume no retaliation",
       active: true
+    },
+    {
+      number: 13,
+      title: "Fire Prevention & Dry Conditions",
+      category: "Fire Prevention",
+      description: "Preventing fires during hot and dry conditions, controlling ignition sources, keeping extinguishers accessible, and checking the work area before leaving.",
+      fileName: "2026-08-24 Toolbox Talk 013 - Fire Prevention and Dry Conditions.pdf",
+      keywords: "fire prevention dry conditions dry grass vegetation extinguisher sparks hot exhaust welding grinding cutting fire risk ignition wildfire",
+      active: true
     }
   ]
 };
