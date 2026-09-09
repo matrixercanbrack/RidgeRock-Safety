@@ -1,4 +1,4 @@
- /*
+/*
   RIDGE ROCK SAFETY HUB DATA
   --------------------------
   This is the main file you update when adding reports, resources,
@@ -11,7 +11,7 @@
 */
 
 const safetyHubData = {
-  lastUpdated: "August 17, 2026",
+  lastUpdated: "September 8, 2026",
 
   quickLinks: [
     {
@@ -225,7 +225,7 @@ const safetyHubData = {
       keywords: "cell phone phones distraction texting driving equipment focus",
       active: true
     },
-   {
+    {
       number: 11,
       title: "Personal Protective Equipment",
       category: "PPE",
@@ -250,6 +250,24 @@ const safetyHubData = {
       description: "Preventing fires during hot and dry conditions, controlling ignition sources, keeping extinguishers accessible, and checking the work area before leaving.",
       fileName: "2026-08-24 Toolbox Talk 013 - Fire Prevention and Dry Conditions.pdf",
       keywords: "fire prevention dry conditions dry grass vegetation extinguisher sparks hot exhaust welding grinding cutting fire risk ignition wildfire",
+      active: true
+    },
+    {
+      number: 14,
+      title: "Stricter PPE Enforcement",
+      category: "PPE",
+      description: "Stricter enforcement of Ridge Rock PPE requirements, employee responsibilities, and foreman accountability for crew compliance.",
+      fileName: "2026-8-31 Toolbox Talk 014 - Stricter PPE Enforcement.pdf",
+      keywords: "ppe enforcement personal protective equipment hard hat safety glasses high visibility reflective vest boots written warning foreman compliance",
+      active: true
+    },
+    {
+      number: 15,
+      title: "Safe Trench Entry",
+      category: "Excavation",
+      description: "Safe trench entry requirements, competent-person inspections, access and exit, cave-in protection, and stop-work authority.",
+      fileName: "2026-9-8 Toolbox Talk 015 - Safe Trench Entry.pdf",
+      keywords: "trench excavation safe entry competent person cave in protection trench box shoring sloping benching ladder access exit 4 feet 5 feet stop work",
       active: true
     }
   ]
